@@ -1,0 +1,368 @@
+/* Общие стили сайта */
+
+/* Цвета, шрифт и отступы сайта */
+:root {
+  --bg: #0e0e12;
+  --panel: #17161c;
+  --line: #2a2930;
+  --text: #f4f2f8;
+  --muted: #9c9aa6;
+  --accent: #b44dff;
+  --font: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --gap: clamp(20px, 5vw, 56px);
+}
+
+/* Сброс отступов и расчёт размеров */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Фон и основной текст */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font: 0.9375rem/1.6 var(--font);
+}
+
+/* Цвет ссылок без подчёркивания */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Заполнение контейнера без искажения изображения */
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Адаптивные размеры заголовков */
+h1, h2, h3 {
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+/* Адаптивные размеры заголовков */
+h1 {
+  margin-bottom: 20px;
+  font-size: clamp(2.5rem, 7vw, 5.25rem);
+}
+
+/* Адаптивные размеры заголовков */
+h2 {
+  font-size: clamp(1.625rem, 4vw, 2.75rem);
+}
+
+/* Адаптивные размеры заголовков */
+h3 {
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+/* Акцентный цвет текста */
+em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* Фокус при управлении клавиатурой */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Центрированный контейнер ограниченной ширины */
+.wrap {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Подпись заголовка и акцентная точка */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Подпись заголовка и акцентная точка */
+.eyebrow i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+/* Основные и прозрачные кнопки */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background-color: var(--accent);
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+/* Основные и прозрачные кнопки */
+.button-ghost {
+  background: none;
+}
+
+/* Текстовые ссылки при наведении */
+.text-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+/* Текстовые ссылки при наведении */
+.text-link:hover {
+  color: var(--accent);
+}
+
+/* Приглушённый вспомогательный текст */
+.muted {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+/* Закреплённая шапка сайта */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Расположение логотипа и навигации */
+.bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+  min-height: 64px;
+  margin: 0 auto;
+}
+
+/* Знак и название бренда */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+/* Знак и название бренда */
+.logo-s {
+  color: var(--accent);
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+/* Знак и название бренда */
+.logo-words {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+/* Ссылки и текущая страница */
+nav a {
+  padding: 8px 12px;
+  border-radius: 99px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+/* Ссылки и текущая страница */
+nav a:hover,
+nav a.current {
+  color: var(--text);
+}
+
+/* Ссылки и текущая страница */
+nav a.current {
+  background-color: var(--panel);
+}
+
+/* Скрытый переключатель мобильного меню */
+.menu-check {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Фокус при управлении клавиатурой */
+.menu-check:focus-visible + .burger {
+  outline: 2px solid var(--accent);
+}
+
+/* Кнопка мобильного меню */
+.burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+/* Кнопка мобильного меню */
+.burger b {
+  width: 16px;
+  height: 1px;
+  background-color: #fff;
+}
+
+/* Мобильная и настольная навигация */
+nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  padding: 8px 0 16px;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Открытие меню через переключатель */
+.menu-check:checked ~ nav {
+  display: flex;
+}
+
+/* Вводный абзац страниц */
+.lead {
+  max-width: 420px;
+  margin-bottom: 24px;
+  color: var(--muted);
+}
+
+/* Верхний отступ внутренних страниц */
+.page {
+  padding-top: 40px;
+}
+
+/* Подвал: колонки, ссылки и контакты */
+footer {
+  border-top: 1px solid var(--line);
+  background-color: var(--panel);
+}
+
+/* Подвал: колонки, ссылки и контакты */
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 40px 0;
+}
+
+/* Подвал: колонки, ссылки и контакты */
+.foot > div {
+  flex: 1 1 calc(50% - 16px);
+}
+
+/* Подвал: колонки, ссылки и контакты */
+.foot > div:first-child {
+  flex-basis: 100%;
+}
+
+/* Подвал: колонки, ссылки и контакты */
+.foot p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+/* Подвал: колонки, ссылки и контакты */
+.foot > div:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+/* Подвал: колонки, ссылки и контакты */
+.foot h2,
+.foot h3 {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Подвал: колонки, ссылки и контакты */
+.foot a:not(.logo),
+.foot span {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+/* Подвал: колонки, ссылки и контакты */
+.foot a:hover {
+  color: var(--accent);
+}
+
+/* Широкие экраны от 768px */
+@media (min-width: 768px) {
+  /* Расположение логотипа и навигации */
+  .bar {
+    min-height: 72px;
+  }
+
+  /* Кнопка мобильного меню */
+  .burger {
+    display: none;
+  }
+
+  /* Мобильная и настольная навигация */
+  nav {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    gap: 4px;
+    padding: 0;
+    background: none;
+    border-bottom: 0;
+  }
+
+  /* Подвал: колонки, ссылки и контакты */
+  .foot > div,
+  .foot > div:first-child {
+    flex: 1 1 160px;
+  }
+}
+
+/* Большие экраны от 1025px */
+@media (min-width: 1025px) {
+  /* Верхний отступ внутренних страниц */
+  .page {
+    padding-top: 56px;
+  }
+}
